@@ -75,4 +75,19 @@ export const userSchema = {
       additionalProperties: true,
     },
   },
+  clearCache: {
+    query: {
+      type: "object",
+      properties: {
+        key: {
+          type: "string",
+        },
+      },
+    },
+    headers: {
+      type: "object",
+      properties: {},
+      additionalProperties: true,
+    },
+  },
 };

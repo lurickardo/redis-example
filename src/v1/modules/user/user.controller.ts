@@ -26,4 +26,8 @@ export const userController = {
   remove: async ({ params: { email } }, reply: FastifyReply) => {
     return reply.code(200).send(await userService.remove(email));
   },
+
+  clearCache: async ({ query: { key } }, reply: FastifyReply) => {
+    return reply.code(200).send(await userService.clearCache(key));
+  },
 };

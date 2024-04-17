@@ -6,7 +6,7 @@ const randomDelay = () => {
 };
 
 export const userRepository = {
-  findOne: async (field: string, value: string) => {
+  findOne: async (field: string, value: string): Promise<CreateUserDto> => {
     return new Promise((resolve) => {
       setTimeout(() => {
         resolve(dbUser.find((user) => user[field] === value));

@@ -58,4 +58,22 @@ const remove = {
   handler: userController.remove,
 };
 
-export const userRouteV1 = [findByEmail, listAll, create, update, remove];
+const clearCache = {
+  method: "DELETE",
+  url: "/v1/user/cache",
+  schema: {
+    tags: ["v1"],
+    summary: "Clear redis cache",
+    ...userSchema.clearCache,
+  },
+  handler: userController.clearCache,
+};
+
+export const userRouteV1 = [
+  findByEmail,
+  listAll,
+  create,
+  update,
+  remove,
+  clearCache,
+];

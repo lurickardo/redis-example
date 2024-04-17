@@ -2,7 +2,7 @@ import * as application from "../../package.json";
 
 type Env = {
 	app: { port: number; environment: string };
-	plugins: { swagger: { basePath: string } };
+	plugins: { swagger: { basePath: string }; redis: { url: string } };
 	stripPrefix: { path: string };
 	database: { name: string; url: string };
 };
@@ -17,6 +17,9 @@ export const env = Object.freeze({
 			basePath: Object.is(process.env.USE_ROUTE_PREFIX, "true")
 				? `/api/${application.name.replace(/-/g, "")}/`
 				: "/",
+		},
+		redis: {
+			url: process.env.REDIS_URL,
 		},
 	},
 	stripPrefix: {
